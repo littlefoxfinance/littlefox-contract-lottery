@@ -1,0 +1,34 @@
+{
+  "name": "littlefox-lottery",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "testrpc": "ganache-cli --gasLimit 13000000 -e 100000 --networkId 666",
+    "compile": "truffle compile --network bscTestnet",
+    "migrate:testnet": "truffle migrate --network bscTestnet --reset && yarn flatten",
+    "migrate:mainnet": "truffle migrate --network bscMainnet --reset && yarn flatten",
+    "test": "rm -rf flatten/*.sol && truffle test --network bscTestnet",
+    "flatten": "sol-merger --export-plugin SPDXLicenseRemovePlugin \"./contracts/Lottery.sol\" ./flatten/ && sol-merger --export-plugin SPDXLicenseRemovePlugin \"./contracts/LotteryNFT.sol\" ./flatten/"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.2.0",
+    "@openzeppelin/test-helpers": "^0.5.6",
+    "@pancakeswap/pancake-swap-lib": "0.0.2",
+    "sol-merger": "^3.1.0",
+    "truffle": "^5.1.41"
+  },
+  "devDependencies": {
+    "@nomiclabs/buidler": "^1.4.7",
+    "@nomiclabs/buidler-ethers": "^2.0.0",
+    "@nomiclabs/buidler-truffle5": "^1.3.4",
+    "@nomiclabs/buidler-waffle": "^2.0.0",
+    "@nomiclabs/buidler-web3": "^1.3.4",
+    "chai": "^4.2.0",
+    "ethereum-waffle": "^3.0.0",
+    "ethers": "^5.0.14",
+    "truffle-flattener": "^1.4.4",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "truffle-plugin-verify": "^0.5.0",
+    "web3": "^1.3.0"
+  }
+}

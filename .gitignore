@@ -1,0 +1,17 @@
+.gitattributes
+build
+artifacts
+.idea/*
+node_modules/*
+contracts/flattened/*.sol
+.secret
+/secrets
+/flatten
+/migrations
+tuffle-config.js
+yarn-error.log
+yarn-lock
+LICENSE
+/migrations
+truffle-config.js
+yarn.lock
